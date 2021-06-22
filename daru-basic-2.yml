@@ -1,0 +1,8 @@
+speed: 8
+lines:
+- out: "Filtering, Sorting, and Grouping"
+  color: green
+  bold: True
+- out: "     "
+- prompt: irb(main):028:0>
+  in: ships.where

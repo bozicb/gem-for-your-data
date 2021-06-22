@@ -1,0 +1,34 @@
+speed: 8
+lines:
+- prompt: irb(main):022:0>
+  in: require 'daru'
+  out: "==> true"
+- out: "        "
+- out: "        Basic Operations"
+  color: green
+  bold: True
+- out: "        "
+- prompt: irb(main):023:0>
+  in: ships = Daru::DataFrame.new(
+- in: '         name: ["USS Enterprise", "USS Voyager", "USS Defiant"],'
+- in: '         registry: ["NCC-1701-B", "NCC-74656", "NCC-1764"] )'
+- prompt: irb(main):024:0>
+  in: ships[:name]
+  out: "==> #<Daru::DataFrame(3x2)>"
+- out: "                name            registry"
+- out: "        0 USS Enterprise        NCC-1701-B"
+- out: "        1 USS Voyager           NCC-74656"
+- out: "        2 USS Defiant           NCC-1764"
+- prompt: irb(main):025:0>
+  in: ships.first(1)
+  out: "==> #<Daru::DataFrame(1x2)>       name           registry"
+- out: "                                0 USS Enterprise NCC-1701-B"      
+- prompt: irb(main):026:0>
+  in: ships.last(1)
+  out: "==> #<Daru::DataFrame(1x2)>       name          registry"
+- out: "                                2 USS Defiant   NCC-1764"
+- prompt: irb(main):027:0>
+  in: ships.row[1..2]
+  out: "==> #<Daru::DataFrame(2x2)>       name          registry"
+- out: "                                1 USS Voyager   NCC-74656"
+- out: "                                2 USS Defiant   NCC-1764"

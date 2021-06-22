@@ -1,0 +1,38 @@
+speed: 8
+lines: 
+- prompt: irb(main):011:0>
+  in: x.reshape(3,2)
+  out: 'Numo::DFloat#shape=[3,2]'
+- out: '[[1,2],'
+- out: ' [3,4],'
+- out: ' [5,6]]'
+- out: '        '
+- out: '                  Building Models'
+  color: green
+  bold: True
+- out: '                         '
+- prompt: irb(main):012:0>
+  in: require 'rumale'
+  out: '==> true'
+- prompt: irb(main):013:0>
+  in: x = Numo::DFloat.asarray([[0,1],[1,0],[1,2]])
+- prompt: irb(main):014:0>
+  in: y = 1 + 2*x[true,0] + 3*x[true,1]
+- prompt: irb(main):014:0>
+  in: 'model = Rumale::LinearModel::LinearRegression.new('
+- in: '                  fit_bias: true, max_iter: 10000)'
+- prompt: irb(main):015:0>
+  in: model.fit(x,y)
+  out: '=> #<Rumale::LinearModel::LinearRegression:0x000056197ff8cb88' 
+- out: '@params={:learning_rate=>0.01, :decay=>0.01, :momentum=>0.9,'
+- out: ':bias_scale=>1.0, :fit_bias=>true, :reg_param=>0.0, :l1_ratio=>0.0,'
+- out: ':max_iter=>10000, :batch_size=>50, :tol=>0.0001, :verbose=>false,'
+- out: ':solver=>"lbfgs", :n_jobs=>nil, :random_seed=>227814938167566910559'
+- out: '310523673070723955}, @penalty_type=nil, @loss_func=#<Rumale::'
+- out: 'LinearModel::Loss::MeanSquaredError:0x000056197ff83e98>,' 
+- out: '@weight_vec=Numo::DFloat#shape=[2][2, 3], @bias_term=1.0000008769969482,'
+- out: '@n_iter=nil, @rng=#<Random:0x000056197ff83ee8>>'
+- prompt: irb(main):016:0>
+  in: model.predict(x)
+  out: '==> Numo::DFloat#shape=[3]'
+- out: '[4,3,9]'

@@ -1,0 +1,18 @@
+speed: 8
+lines:
+- out: '        Storing Data'
+  color: green
+  bold: True
+- out: '                           '
+- prompt: irb(main):017:0>
+  in: File.binwrite("x.dump", Marshal.dump(x))
+  out: '==> 85'
+- prompt: irb(main):018:0>
+  in: x = Marshal.load(File.binread("x.dump")
+- prompt: irb(main):019:0>
+  in: Npy.save("x.npy", x)
+  out: '==> true'
+- prompt: irb(main):020:0>
+  in: x = Npy.load("x.npy")
+- prompt: irb(main):021:0>
+  in: x = Npy.load_npz("mnist.npz")

@@ -1,0 +1,47 @@
+speed: 8  
+lines:
+- out: '        Start IRB and load numo'
+  color: green
+  bold: True
+- out: '        '
+- prompt: $
+  in: irb
+- prompt: irb(main):001:0> 
+  in: require "numo/narray"
+  out: '==> true                          '
+- out: '        '
+- out: '        Array Operations'
+  color: green
+  bold: True
+- out: '        '
+- prompt: irb(main):002:0> 
+  in: x = Numo::DFloat.cast([[1,2,3],[4,5,6]])
+- prompt: irb(main):003:0>
+  in: x.shape
+  out: '==> [2,3]'
+- prompt: irb(main):004:0>
+  in: x[0,true]
+  out: '==> Numo::DFloat(view)#shape=[3]'
+- out: '[1,2,3]'
+- prompt: irb(main):006:0>
+  in: x[true,2]
+  out: '==> Numo::DFloat(view)#shape=[2]'
+- out: '[3,6]'
+- prompt: irb(main):007:0>
+  in: x+2
+  out: '==> Numo::DFloat#shape=[2,3]'
+- out: '[[3,4,5],'
+- out: ' [6,7,8]]'
+- prompt: irb(main):008:0>
+  in: x+x
+  out: '==> Numo::DFloat#shape=[2,3]'
+- out: '[[2,4,6],'
+- out: ' [8,10,12]]'
+- prompt: irb(main):009:0>
+  in: x.sum(0)
+  out: '==> Numo::DFloat#shape=[3]'
+- out: '[5,7,9]'
+- prompt: irb(main):010:0>
+  in: x.mean(1)
+  out: '==> Numo::DFloat#shape[2]'
+- out: '[2,5]'

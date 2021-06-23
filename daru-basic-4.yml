@@ -1,0 +1,14 @@
+speed: 8
+lines:
+- out: "        Read and Write to File"
+  color: green
+  bold: True
+- out: "        "
+- prompt: irb(main):040:0>
+  in: ships.write_csv("ships.csv")
+- prompt: irb(main):041:0>
+  in: ships = Daru::DataFrame.from_csv("ships.csv")
+- out: "        "
+- out: "        Plotting"
+  color: green
+  bold: True

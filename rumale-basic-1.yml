@@ -1,0 +1,5 @@
+speed: 8
+lines:
+- prompt: irb(main):043:0>
+  in: require 'rumale'
+  out: ==> true

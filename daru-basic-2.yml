@@ -1,8 +1,49 @@
 speed: 8
 lines:
-- out: "Filtering, Sorting, and Grouping"
+- out: "        Filtering, Sorting, and Grouping"
   color: green
   bold: True
 - out: "     "
 - prompt: irb(main):028:0>
-  in: ships.where
+  in: ships.where(ships[:crew] > 500)
+  out: "==> #<Daru::DataFrame(1x3)>"     
+- out: "        name            registry        crew"
+- out: "      0 USS Enterprise  NCC-1701-B      750"
+- prompt: irb(main):029:0>
+  in: ships.where(ships[:name].eq("USS Voyager"))
+  out: "==> #<Daru::DataFrame(1x3)>"
+- out: "        name            registry        crew"
+- out: "      1 USS Voyager     NCC-74656       150"
+- prompt: irb(main):030:0>
+  in: 'ships.where(ships[:name].in(["USS Defiant", "USS Ajax"]))'
+  out: "==> #<Daru::DataFrame(1x3)>"
+- out: "        name            registry        crew"
+- out: "      2 USS Defiant     NCC-1764        50"
+- prompt: irb(main):031:0>
+  in: ships.where(!ships[:name].eq("USS Enterprise"))
+  out: "==> #<Daru::DataFrame(2x3)>"
+- out: "        name            registry        crew"
+- out: "      1 USS Voyager     NCC-74656       150"
+- out: "      2 USS Defiant     NCC-1764        50"
+- prompt: irb(main):032:0>
+  in: ships.where(ships[:name].eq("USS Voyager") | (ships[:crew] > 500))
+  out: "==> #<Daru::DataFrame(2x3)>"     
+- out: "        name            registry        crew"
+- out: "      1 USS Enterprise  NCC-1701-B      750"
+- out: "      2 USS Voyager     NCC-74656       150"
+- prompt: irb(main):033:0>
+  in: 'ships.sort([:crew], ascending: [false])'
+  out: "==> #<Daru::DataFrame(3x3)>"
+- out: "        name            registry        crew"
+- out: "      0 USS Enterprise  NCC-1701-B      750"
+- out: "      1 USS Voyager     NCC-74656       150"
+- out: "      2 USS Defiant     NCC-1764        50"
+- prompt: irb(main):034:0>
+  in: crew_enterprise = Daru::DataFrame.new(
+- in: '       name: ["Spock", "Kirk", "Uhura"],'
+- in: '       planet: ["Vulcan", "Earth", "Earth"])'
+- prompt: irb(main):035:0>
+  in: crew_enterprise.group_by([:planet]).count
+  out: "==> #<Daru::DataFrame(2x1)>"
+- out: "      Earth   2"
+- out: "      Vulcan  1"

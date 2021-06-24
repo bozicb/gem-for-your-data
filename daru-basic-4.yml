@@ -12,3 +12,9 @@ lines:
 - out: "        Plotting"
   color: green
   bold: True
+- prompt: irb(main):042:0>
+  in: 'ships.plot type: :bar, x: :name, y: :crew do |plot, diagram|'
+- in: '         plot.x_label "Name"'
+- in: '         plot.y_label "Crew"'
+- in: '         diagram.color(Nyaplot:Colors.Pastel1)'
+- in: ' end'

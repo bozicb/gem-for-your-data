@@ -55,3 +55,41 @@
 ```
 
 ---
+<!-- fg=white bg=black -->
+
+## Daru Basics
+
+![codio](daru-basic-1.yml)
+
+---
+<!-- fg=white bg=black -->
+
+## Daru Basics
+
+![codio](daru-basic-2.yml)
+
+---
+<!-- fg=white bg=black -->
+
+## Daru Basics
+![codio](daru-basic-3.yml)
+
+---
+<!-- fg=white bg=black -->
+
+## Daru Basics
+![codio](daru-basic-4.yml)
+
+---
+<!-- fg=white bg=black -->
+
+## Rumale Basics
+![codio](rumale-basic-1.yml)
+
+---
+<!-- fg=white bg=black -->
+
+## Rumale Basics
+![codio](rumale-basic-1.yml)
+
+---

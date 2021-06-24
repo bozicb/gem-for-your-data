@@ -1,4 +1,33 @@
 speed: 8
 lines: 
-- prompt: irb(main):033:0>
-  in: 
+- out: "                Combining Data Frames"
+  color: green
+  bold: True
+- out: "        "
+- prompt: irb(main):036:0>
+  in: more_ships = Daru::DataFrame.new(
+- in: '         name: ["USS Yamaguchi", "USS Prokofiev"],'
+- in: '         registry: ["NCC-26510", "NCC-68814"],'
+- in: '         crew: [75, 100])'
+- prompt: irb(main):037:0>
+  in: ships.concat(more_ships)
+  out: "==> #<Daru::DataFrame(5x3)>"     
+- out: "          name            registry        crew"
+- out: "        0 USS Enterprise  NCC-1701-B      750"
+- out: "        1 USS Voyager     NCC-74656       150"
+- out: "        2 USS Defiant     NCC-1764        50"
+- out: "        3 USS Yamaguchi   NCC-26510       75"
+- out: "        4 USS Prokofiev   NCC-68814       100"
+- prompt: irb(main):038:0>
+  in: 'captains = Daru::DataFrame.new('
+- in: ' captain: ["Kirk", "Janeway", "Archer", "Sisko", "Zulu"],'
+- in: ' affiliation: ["Starfleet", "Starfleet", "Starfleet", "Starfleet", "Starfleet"])' 
+- prompt: irb(main):39:0>
+  in: ships.merge(captains)
+  out: "==> #<Daru::DataFrame(5x5)>"     
+- out: "         name            registry        crew    captain affiliation"
+- out: "       0 USS Enterprise  NCC-1701-B      750     Kirk    Starfleet"
+- out: "       1 USS Voyager     NCC-74656       150     Janeway Starfleet"
+- out: "       2 USS Defiant     NCC-1764        50      Archer  Starfleet"
+- out: "       3 USS Yamaguchi   NCC-26510       75      Sisko   Starfleet"
+- out: "       4 USS Prokofiev   NCC-68814       100     Zulu    Starfleet"

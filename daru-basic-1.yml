@@ -11,9 +11,10 @@ lines:
 - prompt: irb(main):023:0>
   in: ships = Daru::DataFrame.new(
 - in: '         name: ["USS Enterprise", "USS Voyager", "USS Defiant"],'
-- in: '         registry: ["NCC-1701-B", "NCC-74656", "NCC-1764"] )'
+- in: '         registry: ["NCC-1701-B", "NCC-74656", "NCC-1764"],' 
+- in: '         crew: [750, 150, 50])'
 - prompt: irb(main):024:0>
-  in: ships[:name]
+  in: ships[:name, :registry]
   out: "==> #<Daru::DataFrame(3x2)>"
 - out: "                name            registry"
 - out: "        0 USS Enterprise        NCC-1701-B"
@@ -21,14 +22,17 @@ lines:
 - out: "        2 USS Defiant           NCC-1764"
 - prompt: irb(main):025:0>
   in: ships.first(1)
-  out: "==> #<Daru::DataFrame(1x2)>       name           registry"
-- out: "                                0 USS Enterprise NCC-1701-B"      
+  out: "==> #<Daru::DataFrame(1x3)>"
+- out: "        name           registry       crew"
+- out: "      0 USS Enterprise NCC-1701-B     750"      
 - prompt: irb(main):026:0>
   in: ships.last(1)
-  out: "==> #<Daru::DataFrame(1x2)>       name          registry"
-- out: "                                2 USS Defiant   NCC-1764"
+  out: "==> #<Daru::DataFrame(1x3)>"
+- out: "        name          registry        crew"
+- out: "      2 USS Defiant   NCC-1764        50"
 - prompt: irb(main):027:0>
   in: ships.row[1..2]
-  out: "==> #<Daru::DataFrame(2x2)>       name          registry"
-- out: "                                1 USS Voyager   NCC-74656"
-- out: "                                2 USS Defiant   NCC-1764"
+  out: "==> #<Daru::DataFrame(2x3)>"
+- out: "        name          registry        crew"
+- out: "      1 USS Voyager   NCC-74656       150"
+- out: "      2 USS Defiant   NCC-1764        50"
